@@ -44,6 +44,15 @@ services:
     links:
       - mongo
 
+  mongo_seed:
+    build: ./mongo_seed
+    depends_on:
+      - mongo
+    links:
+      - mongo
+    networks:
+      - webnet
+
   backend:
     build:
       context: ./backend
